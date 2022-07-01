@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: {
-    main: "./src/index.ts",
+    index: "./src/index.tsx",
   },
   output: {
     path: path.resolve("./dist"),
@@ -27,12 +27,12 @@ module.exports = {
         },
       },
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: /node_modules/,
       },
@@ -49,16 +49,12 @@ module.exports = {
   },
   resolve: {
     modules: [path.join(__dirname, "src"), "node_modules"],
-    extensions: ["*", ".ts", ".js"],
-    alias: {
-      Components: path.resolve(__dirname, "src/Components/"),
-      dummy: path.resolve(__dirname, "src/dummy/"),
-      utils: path.resolve(__dirname, "src/utils/"),
-      views: path.resolve(__dirname, "src/views/"),
-      style: path.resolve(__dirname, "src/style/"),
-    },
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      React: "react",
+    }),
     new HtmlWebpackPlugin({
       minify: {
         collapseWhitespace: true,
