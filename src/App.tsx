@@ -1,9 +1,5 @@
-import styled from '@emotion/styled'
+import { HomePage } from '@/pages'
 
-const Title = styled.div`
-  color: hotpink;
-`
-
-const App = () => <Title>Test</Title>
+const App = () => <HomePage />
 
 export default App
