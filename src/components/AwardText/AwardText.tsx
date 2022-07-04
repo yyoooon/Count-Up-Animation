@@ -29,20 +29,20 @@ const ProviderText = styled.span`
 `
 
 interface AwardTextProps extends React.ComponentProps<'div'> {
-  image: string
+  imageUrl: string
   year: string
   provider: string
   title: string
 }
 
 const AwardText = ({
-  image,
+  imageUrl,
   year,
   provider,
   title,
   ...props
 }: AwardTextProps) => (
-  <AwardTextBox {...props} imageUrl={image}>
+  <AwardTextBox {...props} imageUrl={imageUrl}>
     <TextBox>
       <ProviderText>
         {year}&nbsp;{provider}
