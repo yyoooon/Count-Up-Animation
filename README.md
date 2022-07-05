@@ -156,7 +156,7 @@ export default AchievementSection
 
 **구현 방법** 
 
-숫자를 증가시키는 값을 점점 작아지도록 해서 다음 정수로 바뀌는 시간을 점점 늦추는 방법으로 구현했습니다.
+숫자를 증가시키는 값을 점점 작아지도록해서 다음 정수로 바뀌는 시간을 점점 늦추는 방법을 사용했습니다.
 - counteNumber는 maxCountNumber에서 decreasingValue을 뺀 값을 정수로 올림한 값입니다.
 - decreasingValue은 계속 감소되기 때문에  그래서 countingNumber가 점점 커지게 됩니다.
 - decreasingValue 값이 감소하는 정도가 점점 줄어들기 때문에 countingNumber는 증가 되는 정도가 점점 줄게 됩니다.
