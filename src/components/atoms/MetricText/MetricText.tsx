@@ -3,18 +3,18 @@ import styled from '@emotion/styled'
 
 import { countUpAnimation } from '@/util'
 
+interface MetricTextProps extends React.ComponentProps<'div'> {
+  number: number
+  unit: string
+  target: string
+}
+
 const MetricTextBox = styled.div`
   font-size: 36px;
 `
 const MeasureText = styled.strong`
   font-weight: bold;
 `
-
-interface MetricTextProps extends React.ComponentProps<'div'> {
-  number: number
-  unit: string
-  target: string
-}
 
 const MetricText = ({ number, unit, target, ...props }: MetricTextProps) => {
   const count = useRef<HTMLElement>(null)

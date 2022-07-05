@@ -1,5 +1,12 @@
 import styled from '@emotion/styled'
 
+interface AwardTextProps extends React.ComponentProps<'div'> {
+  imageUrl: string
+  year: string
+  provider: string
+  title: string
+}
+
 const AwardTextBox = styled.div<{ imageUrl: string }>`
   display: flex;
   justify-content: left;
@@ -27,13 +34,6 @@ const TextBox = styled.div`
 const ProviderText = styled.span`
   display: block;
 `
-
-interface AwardTextProps extends React.ComponentProps<'div'> {
-  imageUrl: string
-  year: string
-  provider: string
-  title: string
-}
 
 const AwardText = ({
   imageUrl,
