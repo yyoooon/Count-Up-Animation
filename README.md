@@ -277,18 +277,18 @@ export const countUpAnimation = ({
 // MetricItem/MetricItem.tsx
 
   const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
-  const count = useRef<HTMLElement>(null)
+  const numberEl = useRef<HTMLElement>(null)
 
   useEffect(() => {
     countUpAnimation({
       maxCountNumber: number,
       duration: 2000,
       delay: 25,
-      onCountNumber: (num: number) => {
-        if (!count.current) {
+      onCountNumber: (countNumber: number) => {
+        if (!numberEl.current) {
           return
         }
-        count.current.innerText = String(num)
+        numberEl.current.innerText = String(countNumber)
       },
     })
   }, [number])
@@ -296,7 +296,7 @@ export const countUpAnimation = ({
   return (
     <MetricItemBox {...props}>
       <MeasureText>
-        <span ref={count}>{number}</span>
+        <span ref={numberEl}>{number}</span>
         {unit}
       </MeasureText>
       <span>의 {target}</span>
@@ -376,6 +376,6 @@ root
 
 </br>
 
-## 트러블 슈팅과 아쉬운 점
+## 트러블 슈팅
 https://yoonnote.notion.site/d9785cd863c548b985bd989a7e37e5ea
 
