@@ -29,6 +29,7 @@ CRA을 사용하지 않고 직접 환경을 구성했습니다.
 
 ## 기능 구현 내용
 
+</br>
 
 ### 🔧  기본  사항
 
@@ -269,6 +270,7 @@ export const countUpAnimation = ({
 **사용 코드**
 ```tsx
 // MetricItem/MetricItem.tsx
+
   useEffect(() => {
     countUpAnimation({
       maxCountNumber: number,
