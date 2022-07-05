@@ -268,8 +268,16 @@ export const countUpAnimation = ({
 </br>
 
 **사용 코드**
+
+- 상태를 사용한다면 숫자가 바뀔 때마다 모든 엘리먼트들이 전부 리렌더링 되기 때문에 
+  ref를 이용해 돔에 직접 접근하여 숫자 부분만 업데이트 해주는 방법을 사용했습니다.
+- 숫자가 달라질 때에만 업데이트 되도록 최적화해주었습니다.
+
 ```tsx
 // MetricItem/MetricItem.tsx
+
+  const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
+  const count = useRef<HTMLElement>(null)
 
   useEffect(() => {
     countUpAnimation({
@@ -284,6 +292,18 @@ export const countUpAnimation = ({
       },
     })
   }, [number])
+
+  return (
+    <MetricItemBox {...props}>
+      <MeasureText>
+        <span ref={count}>{number}</span>
+        {unit}
+      </MeasureText>
+      <span>의 {target}</span>
+    </MetricItemBox>
+  )
+}
+
 ```
 
 </br>
