@@ -1,10 +1,10 @@
-import { HomePage } from '@/pages'
+import { MainPage } from '@/pages'
 import { GlobalStyle } from '@/style'
 
 const App = () => (
   <>
     <GlobalStyle />
-    <HomePage />
+    <MainPage />
   </>
 )
 
