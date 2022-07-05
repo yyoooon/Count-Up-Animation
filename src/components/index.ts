@@ -1,1 +1,3 @@
-export { default as MetricsContainer } from './MetricsContainer/MetricsContainer'
+export { default as MetricText } from './atoms/MetricText/MetricText'
+export { default as AwardText } from './atoms/AwardText/AwardText'
+export { default as LogoImage } from './atoms/LogoImage/LogoImage'
