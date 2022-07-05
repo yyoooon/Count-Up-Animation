@@ -14,8 +14,8 @@ const LogoImageBox = styled.div<{ imageUrl: string }>`
   background-repeat: no-repeat;
 `
 
-const LogoImage = () => (
-  <LogoImageBox imageUrl={triple}>
+const LogoImage = ({ ...props }) => (
+  <LogoImageBox imageUrl={triple} {...props}>
     <span>2019년 2월 기준</span>
   </LogoImageBox>
 )

@@ -7,11 +7,14 @@ const MetricTextGroupBox = styled.div`
   flex-direction: column;
 `
 const StyledMetricText = styled(MetricText)`
-  margin-bottom: 36px;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
-const MetricTextGroup = () => (
-  <MetricTextGroupBox>
+const MetricTextGroup = ({ ...props }) => (
+  <MetricTextGroupBox {...props}>
     <StyledMetricText number={700} unit="만 명" target="여행자" />
     <StyledMetricText number={100} unit="만 개" target="여행 리뷰" />
     <StyledMetricText number={470} unit="만 개" target="여행 일정" />

@@ -1,17 +1,18 @@
 import styled from '@emotion/styled'
 
-import { LogoImage, AwardTextGroup, MetricTextGroup } from '@/components'
+import { AchievementSection } from '@/components'
 
 const PageLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   height: 100vh;
 `
 const HomePage = () => (
   <PageLayout>
-    <LogoImage />
-    <MetricTextGroup />
-    <AwardTextGroup />
+    <AchievementSection />
   </PageLayout>
 )
 
