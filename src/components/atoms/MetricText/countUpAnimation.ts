@@ -17,7 +17,12 @@ interface CounterType {
 }
 
 // eslint-disable-next-line promise/prefer-await-to-callbacks
-const counter = ({ maxNumber, duration, delay, excutor }: CounterType) => {
+export const countUpAnimation = ({
+  maxNumber,
+  duration,
+  delay,
+  excutor,
+}: CounterType) => {
   let now = maxNumber
   let num = 0
   const time = getTime(maxNumber, delay, duration)
@@ -36,5 +41,3 @@ const counter = ({ maxNumber, duration, delay, excutor }: CounterType) => {
     now -= step
   }, time)
 }
-
-export default counter

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 
-import { countUpAnimation } from '@/util'
+import { countUpAnimation } from './countUpAnimation'
 
 interface MetricTextProps extends React.ComponentProps<'div'> {
   number: number
