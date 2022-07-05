@@ -1,43 +1,59 @@
-const getTime = (maxNumber: number, delay: number, time: number) => {
-  let now = maxNumber
-  let count = 0
-  while (Math.ceil(maxNumber - now) !== maxNumber) {
-    const step = now / delay
-    count++
-    now -= step
-  }
-  return time / count
-}
-
-interface CounterType {
-  maxNumber: number
+interface CountUpAnimationType {
+  initialCountNumber?: number
+  maxCountNumber: number
   duration: number
   delay: number
-  excutor: (num: number) => void
+  onCountNumber: (num: number) => void
 }
 
-// eslint-disable-next-line promise/prefer-await-to-callbacks
+const getRepeatCount = (maxCountNumber: number, delay: number) => {
+  let decreasingValue = maxCountNumber
+  let repeatCount = 0
+
+  while (Math.ceil(maxCountNumber - decreasingValue) !== maxCountNumber) {
+    repeatCount++
+
+    const step = decreasingValue / delay
+    decreasingValue -= step
+  }
+
+  return repeatCount
+}
+
+const getTimeToRepeatOnce = (
+  maxCountNumber: number,
+  delay: number,
+  duration: number,
+) => {
+  const repeatCount = getRepeatCount(maxCountNumber, delay)
+  return duration / repeatCount
+}
+
 export const countUpAnimation = ({
-  maxNumber,
+  initialCountNumber = 0,
+  maxCountNumber,
   duration,
   delay,
-  excutor,
-}: CounterType) => {
-  let now = maxNumber
-  let num = 0
-  const time = getTime(maxNumber, delay, duration)
+  onCountNumber,
+}: CountUpAnimationType) => {
+  let countNumber = initialCountNumber
+  let decreasingValue = maxCountNumber
+  const timeToRepeatOnce = getTimeToRepeatOnce(maxCountNumber, delay, duration)
 
   const handle = setInterval(() => {
-    num = Math.ceil(maxNumber - now)
-    // eslint-disable-next-line promise/prefer-await-to-callbacks
-    excutor(num)
+    const nextCountNumber = Math.ceil(maxCountNumber - decreasingValue)
 
-    if (num === maxNumber) {
+    if (countNumber !== nextCountNumber) {
+      countNumber = nextCountNumber
+      onCountNumber(countNumber)
+    }
+
+    if (countNumber === maxCountNumber) {
       clearInterval(handle)
       return
     }
 
-    const step = now / delay
-    now -= step
-  }, time)
+    const nextDegreeOfDecreasing = decreasingValue / delay
+    decreasingValue -= nextDegreeOfDecreasing
+  }, timeToRepeatOnce)
 }

@@ -21,10 +21,10 @@ const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
 
   useEffect(() => {
     countUpAnimation({
-      maxNumber: number,
+      maxCountNumber: number,
       duration: 2000,
       delay: 25,
-      excutor: (num: number) => {
+      onCountNumber: (num: number) => {
         if (!count.current) {
           return
         }
