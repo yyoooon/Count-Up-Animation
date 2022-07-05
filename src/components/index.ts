@@ -1,1 +1,1 @@
-export { default as CountUpText } from './CountUpText'
+export { default as MetricsContainer } from './MetricsContainer/MetricsContainer'

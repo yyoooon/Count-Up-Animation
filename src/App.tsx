@@ -1,5 +1,11 @@
 import { HomePage } from '@/pages'
+import { GlobalStyle } from '@/style'
 
-const App = () => <HomePage />
+const App = () => (
+  <>
+    <GlobalStyle />
+    <HomePage />
+  </>
+)
 
 export default App
