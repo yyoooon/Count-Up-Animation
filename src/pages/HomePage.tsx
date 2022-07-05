@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { LogoImage, AwardTextGroup } from '@/components'
+import { LogoImage, AwardTextGroup, MetricTextGroup } from '@/components'
 
 const PageLayout = styled.div`
   max-width: 1200px;
@@ -10,6 +10,7 @@ const PageLayout = styled.div`
 const HomePage = () => (
   <PageLayout>
     <LogoImage />
+    <MetricTextGroup />
     <AwardTextGroup />
   </PageLayout>
 )
