@@ -1,17 +1,17 @@
 import styled from '@emotion/styled'
 
-import { MetricsContainer } from '@/components'
+import { LogoImage, AwardTextGroup } from '@/components'
 
-const Wrapper = styled.div`
-  border: 1px solid gray;
+const PageLayout = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   height: 100vh;
 `
 const HomePage = () => (
-  <Wrapper>
-    <MetricsContainer />
-  </Wrapper>
+  <PageLayout>
+    <LogoImage />
+    <AwardTextGroup />
+  </PageLayout>
 )
 
 export default HomePage
