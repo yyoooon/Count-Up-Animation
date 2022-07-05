@@ -3,20 +3,20 @@ import styled from '@emotion/styled'
 
 import { countUpAnimation } from './countUpAnimation'
 
-interface MetricTextProps extends React.ComponentProps<'div'> {
+interface MetricItemProps extends React.ComponentProps<'div'> {
   number: number
   unit: string
   target: string
 }
 
-const MetricTextBox = styled.div`
+const MetricItemBox = styled.div`
   font-size: 36px;
 `
 const MeasureText = styled.strong`
   font-weight: bold;
 `
 
-const MetricText = ({ number, unit, target, ...props }: MetricTextProps) => {
+const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
   const count = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -34,14 +34,14 @@ const MetricText = ({ number, unit, target, ...props }: MetricTextProps) => {
   }, [number])
 
   return (
-    <MetricTextBox {...props}>
+    <MetricItemBox {...props}>
       <MeasureText>
         <span ref={count}>{number}</span>
-        <span>{unit}</span>
+        {unit}
       </MeasureText>
       <span>의 {target}</span>
-    </MetricTextBox>
+    </MetricItemBox>
   )
 }
 
-export default MetricText
+export default MetricItem
