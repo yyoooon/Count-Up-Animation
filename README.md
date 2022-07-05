@@ -271,7 +271,9 @@ export const countUpAnimation = ({
 
 ## 스타일드 컴포넌트 네이밍 컨벤션
 section태그 = ~container
+
 div태그 - ~box
+
 span - ~text
 
 </br>
