@@ -17,18 +17,18 @@ const MeasureText = styled.strong`
 `
 
 const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
-  const count = useRef<HTMLElement>(null)
+  const numberEl = useRef<HTMLElement>(null)
 
   useEffect(() => {
     countUpAnimation({
       maxCountNumber: number,
       duration: 2000,
       delay: 25,
-      onCountNumber: (num: number) => {
-        if (!count.current) {
+      onCountNumber: (countNumber: number) => {
+        if (!numberEl.current) {
           return
         }
-        count.current.innerText = String(num)
+        numberEl.current.innerText = String(countNumber)
       },
     })
   }, [number])
@@ -36,7 +36,7 @@ const MetricItem = ({ number, unit, target, ...props }: MetricItemProps) => {
   return (
     <MetricItemBox {...props}>
       <MeasureText>
-        <span ref={count}>{number}</span>
+        <span ref={numberEl}>{number}</span>
         {unit}
       </MeasureText>
       <span>의 {target}</span>
