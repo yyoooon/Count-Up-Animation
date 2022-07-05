@@ -265,7 +265,7 @@ export const countUpAnimation = ({
 </br>
 
 ## 폴더 구조
-<img width="60%" alt="image" src="https://user-images.githubusercontent.com/81611808/177356645-7eae4538-9e0f-46c3-a746-1133cb1b4f21.png">
+<img width="40%" alt="image" src="https://user-images.githubusercontent.com/81611808/177356645-7eae4538-9e0f-46c3-a746-1133cb1b4f21.png">
 
 </br>
 
