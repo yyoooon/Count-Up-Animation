@@ -30,7 +30,8 @@ CRA을 사용하지 않고 직접 환경을 구성했습니다.
 ## 기능 구현 내용
 
 
-### 기본 사항
+### 🔧  기본  사항
+
 ```
 ✅ 문구, 이미지의 레이아웃과 스타일은 트리플 홈페이지와 동일해야 합니다. 단,반응형 레이아웃은 고려하지 않습니다. 최소 화면 폭을 1200px로 고정합니다.
 ✅ React를 이용하여 개발합니다. 그 외의 개발 스택은 자유롭게 구성합니다.
@@ -38,13 +39,20 @@ CRA을 사용하지 않고 직접 환경을 구성했습니다.
 ✅ 린팅/포매팅 셋업 시 titicacadev/eslint-config-triple을 적용해주세요.
 ```
 
+</br>
 
-### 영역별 등장 애니메이션
+### 🔧  영역 별 등장 애니메이션
+
+</br>
+
+**요구 사항**
 ```
 ✅ 좌측 이미지, 지표 문구, 수상 내역 순으로 표시해야 합니다.
 ✅ 살짝 위로 떠오르는 듯한 애니메이션과 투명도를 조절하는 애니메이션을 적용해야 합니다.
 ✅ 등장 애니메이션의 duration은 700ms이고, 애니메이션 사이 간격은 100ms입니다.
 ```
+
+</br>
 
 **구현 방법**
 - css의 keyframes과 animation속성을 이용해 구현했습니다.
@@ -52,7 +60,7 @@ CRA을 사용하지 않고 직접 환경을 구성했습니다.
 
 </br>
 
-**코드**
+**로직 코드**
 
 ```ts
 // AchievementSection/transitionAnimation.ts
@@ -80,6 +88,9 @@ export const delayGap = 100
 
 ```
 
+</br>
+
+**사용 코드**
 ```tsx
 // AchievementSection/AchievementSection.tsx
 
@@ -126,8 +137,13 @@ export default AchievementSection
 
 <br/>
 
+</br>
 
-### 숫자가 올라가는 애니메이션
+### 🔧  숫자가 올라가는 애니메이션
+
+</br>
+
+**요구 사항**
 ```
 ✅ 각 숫자는 0부터 시작합니다.
 ✅ 세 숫자 모두 2초 동안 증가하고, 동시에 끝나야 합니다.
@@ -151,7 +167,8 @@ export default AchievementSection
 - 2000(ms)으로 나눠준 값을 setInterval의 2번째 인자로 적용하였습니다
 
 ```
-// ex)
+// 다음 정수로 바뀌는 시간이 점점 증가함
+
 0.5
 0.97
 1.42
@@ -177,7 +194,9 @@ export default AchievementSection
 6.92
 ```
 
-**코드**
+</br>
+
+**로직 코드**
 
 ```tsx
 
@@ -243,8 +262,12 @@ export const countUpAnimation = ({
   }, timeToRepeatOnce)
 }
 
+```
 
-// 사용법
+</br>
+
+**사용 코드**
+```tsx
 // MetricItem/MetricItem.tsx
   useEffect(() => {
     countUpAnimation({
@@ -259,22 +282,75 @@ export const countUpAnimation = ({
       },
     })
   }, [number])
-
 ```
 
 </br>
 
 ## 폴더 구조
-<img width="40%" alt="image" src="https://user-images.githubusercontent.com/81611808/177356645-7eae4538-9e0f-46c3-a746-1133cb1b4f21.png">
+
+```
+root
+├─ public
+│  └─ index.html
+└─ src
+   ├─ assets
+   │  ├─ images
+   │  │  ├─ badge-apple.png
+   │  │  ├─ play-store.png
+   │  │  └─ triple.png
+   │  └─ index.ts
+   ├─ components
+   │  ├─ atoms
+   │  │  ├─ AwardItem
+   │  │  │  └─ AwardItem.tsx
+   │  │  ├─ BackgroundImage
+   │  │  │  └─ BackgroundImage.tsx
+   │  │  └─ MetricItem
+   │  │     ├─ MetricItem.tsx
+   │  │     └─ countUpAnimation.ts
+   │  ├─ molecules
+   │  │  ├─ AwardItemGroup
+   │  │  │  └─ AwardItemGroup.tsx
+   │  │  ├─ LogoImage
+   │  │  │  └─ LogoImage.tsx
+   │  │  └─ MetricItemGroup
+   │  │     └─ MetricItemGroup.tsx
+   │  ├─ organisms
+   │  │  └─ AchievementSection
+   │  │      ├─ AchievementSection.tsx
+   │  │      └─ transitionAnimation.ts
+   │  └─ index.ts
+   ├─ pages
+   │  ├─ MainPage.tsx
+   │  └─ index.ts
+   ├─ style
+   │  ├─ GlobalStyle.tsx
+   │  └─ index.ts
+   ├─ App.tsx
+   └─ index.tsx
+```
+</br>
+
+## 컴포넌트 구조
+
+```
+<MainPage>
+   <AchievementSection>
+      <LogoImage>
+      <MetricItemGroup>
+      <AwardItemGroup>
+   <AchievementSection>
+<MainPage>
+```
 
 </br>
 
 ## 스타일드 컴포넌트 네이밍 컨벤션
-section태그 = ~container
+`section태그`: ~container *(ex.AchievementSectionContainer)*
 
-div태그 - ~box
+`div태그`: ~box *(ex.MetricItemBox)*
 
-span - ~text
+`span태그`: ~text  *(ex.MeasureText)*
 
 </br>
 
