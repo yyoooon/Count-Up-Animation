@@ -10,8 +10,8 @@ const StyledAwardText = styled(AwardText)`
   margin-right: 20px;
 `
 
-const AwardTextGroup = () => (
-  <AwardTextGroupBox>
+const AwardTextGroup = ({ ...props }) => (
+  <AwardTextGroupBox {...props}>
     <StyledAwardText
       imageUrl={play_store}
       year="2018"
