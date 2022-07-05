@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import { AchievementSection } from '@/components'
 
-const PageLayout = styled.div`
+const PageLayoutBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +10,10 @@ const PageLayout = styled.div`
   margin: 0 auto;
   height: 100vh;
 `
-const HomePage = () => (
-  <PageLayout>
+const MainPage = () => (
+  <PageLayoutBox>
     <AchievementSection />
-  </PageLayout>
+  </PageLayoutBox>
 )
 
-export default HomePage
+export default MainPage

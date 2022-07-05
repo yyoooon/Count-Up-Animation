@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { LogoImage, AwardTextGroup, MetricTextGroup } from '@/components'
+import { LogoImage, AwardItemGroup, MetricItemGroup } from '@/components'
 
 import { smoothAppearUpAnimation, delayGap } from './transitionAnimation'
 
@@ -19,13 +19,13 @@ const StyledLogoImage = styled(LogoImage)`
   animation-delay: ${delayGap * 0}ms;
 `
 
-const StyledMetricTextGroup = styled(MetricTextGroup)`
+const StyledMetricItemGroup = styled(MetricItemGroup)`
   margin-bottom: 50px;
   ${smoothAppearUpAnimation}
   animation-delay:${delayGap}ms;
 `
 
-const StyledAwardTextGroup = styled(AwardTextGroup)`
+const StyledAwardItemGroup = styled(AwardItemGroup)`
   ${smoothAppearUpAnimation}
   animation-delay: ${delayGap * 2}ms;
 `
@@ -34,8 +34,8 @@ const AchievementSection = () => (
   <AchievementSectionContainer>
     <StyledLogoImage />
     <div>
-      <StyledMetricTextGroup />
-      <StyledAwardTextGroup />
+      <StyledMetricItemGroup />
+      <StyledAwardItemGroup />
     </div>
   </AchievementSectionContainer>
 )
