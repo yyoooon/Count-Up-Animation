@@ -1,7 +1,5 @@
 import styled from '@emotion/styled'
 
-import { triple } from '@/assets'
-
 interface BackgroundImageType extends React.ComponentProps<'div'> {
   imageUrl: string
   width: string | number
@@ -32,7 +30,7 @@ const BackgroundImage = ({
   ...props
 }: BackgroundImageType) => (
   <BackgroundImageBox
-    imageUrl={triple}
+    imageUrl={imageUrl}
     width={width}
     height={height}
     {...props}

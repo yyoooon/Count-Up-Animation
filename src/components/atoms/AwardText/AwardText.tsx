@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 
+import { BackgroundImage } from '@/components'
+
 interface AwardTextProps extends React.ComponentProps<'div'> {
   imageUrl: string
   year: string
@@ -7,28 +9,17 @@ interface AwardTextProps extends React.ComponentProps<'div'> {
   title: string
 }
 
-const AwardTextBox = styled.div<{ imageUrl: string }>`
+const AwardTextBox = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
-
-  &:before {
-    content: '';
-    display: block;
-    width: 54px;
-    height: 54px;
-    margin-right: 10px;
-    background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
 `
 
-const TextBox = styled.div`
+const TextsBox = styled.div`
   font-weight: bold;
   font-size: 14px;
   line-height: 22px;
+  margin-left: 10px;
   color: rgba(58, 58, 58, 0.8);
 `
 const ProviderText = styled.span`
@@ -42,13 +33,19 @@ const AwardText = ({
   title,
   ...props
 }: AwardTextProps) => (
-  <AwardTextBox {...props} imageUrl={imageUrl}>
-    <TextBox>
+  <AwardTextBox {...props}>
+    <BackgroundImage
+      imageUrl={imageUrl}
+      width="54px"
+      height="54px"
+      aria-hidden="true"
+    />
+    <TextsBox>
       <ProviderText>
         {year}&nbsp;{provider}
       </ProviderText>
       <strong>{title}</strong>
-    </TextBox>
+    </TextsBox>
   </AwardTextBox>
 )
 
