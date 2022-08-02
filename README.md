@@ -1,4 +1,4 @@
-# YangYoon_Triple_Work
+# Count-Up-Animation 
 
 [배포 링크](https://yang-yoon-triple-work.vercel.app/)
 
